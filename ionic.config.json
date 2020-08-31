@@ -1,0 +1,7 @@
+{
+    "name": "modal-ionic-ts",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }
