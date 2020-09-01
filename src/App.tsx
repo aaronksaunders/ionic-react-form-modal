@@ -29,7 +29,7 @@ import MyModal from "./MyModal";
 
 const App: React.FunctionComponent = () => {
   // tracks modal state
-  const [myModal, setMyModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   // track state of my user
   const [myUser, setMyUser] = useState({ name: "Aaron" });
@@ -41,7 +41,7 @@ const App: React.FunctionComponent = () => {
   } | null>(null);
 
   const onModalClose = (response: any) => {
-    setMyModal(false);
+    setShowModal(false);
     setModalResp(response);
     if (!response.cancelled) {
       setMyUser({ name: response.data.name });
@@ -58,9 +58,9 @@ const App: React.FunctionComponent = () => {
         </IonHeader>
 
         <IonContent className="ion-padding">
-          {myModal && (
+          {showModal && (
             <MyModal
-              isOpen={myModal}
+              isOpen={showModal}
               initialData={{ ...myUser }}
               onClose={onModalClose}
             />
@@ -74,7 +74,7 @@ const App: React.FunctionComponent = () => {
           </div>
           <IonButton
             onClick={() => {
-              setMyModal(true);
+              setShowModal(true);
             }}
           >
             SHOW MODAL
